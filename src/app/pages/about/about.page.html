@@ -7,10 +7,59 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Acerca de</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>¿Quiénes somos?</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Somos una tienda de ropa que se dedica a ofrecer prendas de calidad a precios accesibles. Nos esforzamos por ofrecer una experiencia de compra excepcional a nuestros clientes y por brindar un servicio de atención al cliente de primera categoría.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nuestra historia</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Comenzamos como una pequeña tienda en una esquina de la ciudad, pero rápidamente nos dimos cuenta de que había una gran demanda de ropa de calidad a precios accesibles. Desde entonces, hemos estado expandiendo nuestra selección de productos y mejorando nuestra atención al cliente.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Contáctanos</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Si tienes alguna pregunta o comentario, no dudes en contactarnos a través de nuestro correo electrónico o nuestras redes sociales.</p>
+      <p><strong>Correo electrónico:</strong> contacto@vesta.com</p>
+      <p><strong>Facebook:</strong> facebook.com/vesta</p>
+      <p><strong>Instagram:</strong> instagram.com/vesta</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Para más información mándanos un mensaje</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form #contactForm="ngForm">
+        <ion-item>
+          <ion-label position="floating">Correo electrónico</ion-label>
+          <ion-input type="email" name="email"  required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Mensaje</ion-label>
+          <ion-textarea name="message"  required></ion-textarea>
+        </ion-item>
+
+        <ion-button type="submit" expand="block">Enviar mensaje</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

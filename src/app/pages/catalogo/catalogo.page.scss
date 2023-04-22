@@ -14,17 +14,6 @@
     ion-card {
       height: 400px;
     }
-    
-    /* Seleccionamos los primeros dos elementos */
-    .card-container ion-card:nth-child(-n+2) {
-      flex-basis: 45%;
-      margin-right: 20px;
-    }
-    
-    /* Especificamos el margen derecho del segundo elemento como cero */
-    .card-container ion-card:nth-child(2) {
-      margin-right: 0;
-    }
   }
   
   .card-img {

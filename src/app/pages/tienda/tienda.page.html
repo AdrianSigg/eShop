@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button routerLink="../carrito">
+        <ion-icon slot="icon-only" name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Comprar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Comprar</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list class="card-shop-container">
+    <ion-card routerLink="/home" class="small-shop-card">
+      <ion-img src="../../../assets/sombreros/pescador.jpg" class="card-shop-img"></ion-img>
+      <ion-card-content>
+        Gorro De Pescador Bordado De Doble Cara Alta Calidad
+      </ion-card-content>
+      <ion-card-header>
+        <ion-card-title>Precio</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card routerLink="/home" class="small-shop-card">
+      <ion-img src="../../../assets/sombreros/pachuco.jpg" class="card-shop-img"/>
+      <ion-card-content>
+        Sombrero Hombre Pachuco Ala Corta Vintage Mujer
+      </ion-card-content>
+      <ion-card-header>
+        <ion-card-title>Precio</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card routerLink="/home" class="small-shop-card">
+      <ion-img src="../../../assets/sombreros/bombin.jpg" class="card-shop-img"/>
+      <ion-card-content>
+        Sombrero Elegante Tipo Bombin Unisex De Vestir Formal
+      </ion-card-content>
+      <ion-card-header>
+        <ion-card-title>Precio</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card routerLink="/home" class="small-shop-card">
+      <ion-img src="../../../assets/sombreros/kirby.jpg" class="card-shop-img"/>
+      <ion-card-content>
+        Gorro De Punto De Invierno Kirby Rosa Y Ojos Blancos
+      </ion-card-content>
+      <ion-card-header>
+        <ion-card-title>Precio</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </ion-list>
+</ion-content>

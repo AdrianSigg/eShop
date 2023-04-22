@@ -5,6 +5,8 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  public isLargeScreen = window.matchMedia("(min-width: 992px)").matches;
+
   public appPages = [
     { title: 'Inicio', url: 'home', icon: 'home' },
     { title: 'Catálogo', url: 'catalogo', icon: 'shirt' },
@@ -14,6 +16,5 @@ export class AppComponent {
     { title: 'Ayuda', url: 'help', icon: 'help-circle' },
     { title: 'Acerca de', url: 'about', icon: 'information-circle' }
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {}
 }

@@ -1,0 +1,22 @@
+.card-shop-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.small-shop-card {
+    width: 200px;
+    height: 350px;
+    font-size: 0.8rem;
+}
+
+ion-card {
+    height: 25%;
+}
+
+
+.card-shop-img {
+    height: 165px;
+    object-fit: cover;
+}
