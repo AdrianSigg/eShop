@@ -5,17 +5,17 @@
       align-items: center;
       flex-wrap: wrap; /* Añadimos esta propiedad */
     }
-  
+
     .small-card {
       width: 45%;
       font-size: 0.8rem;
     }
-  
+
     ion-card {
       height: 400px;
     }
   }
-  
+
   .card-img {
     height: 165px;
     object-fit: cover;

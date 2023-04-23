@@ -5,6 +5,19 @@
     </ion-buttons>
     <ion-title>Carrito de compras</ion-title>
   </ion-toolbar>
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-segment value="all">
+        <ion-segment-button value="all">
+          <ion-label>Carrito</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="favorites">
+          <ion-label>Guardados</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </ion-header>
 </ion-header>
 
 <ion-content [fullscreen]="true">
