@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiServiceService } from '../../services/api-service.service';
 
 @Component({
   selector: 'app-tienda',
@@ -6,8 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tienda.page.scss'],
 })
 export class TiendaPage implements OnInit {
+  usuarios: any;
 
-  constructor() {}
+  constructor(
+    private apiService: ApiServiceService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.apiService.consultarUsuario('admin', '1111').subscribe(
+      (usuario) => {
+        console.log(usuario);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+
+  }
 }
