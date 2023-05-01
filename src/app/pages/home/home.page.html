@@ -3,6 +3,14 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <ion-buttons slot="end" *ngIf="token === 'null'">
+      <ion-button routerLink="../login" >
+        <ion-icon slot="icon-only" name="person"></ion-icon>
+      </ion-button>
+      <ion-button routerLink="../register">
+        <ion-icon slot="icon-only" name="person-add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>VESTA</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -21,7 +29,7 @@
     <ion-row>
       <ion-col size="6">
         <ion-card routerLink="/productos" class="collecion">
-          <ion-img src="../../../assets/women.jpg" class="card-img"></ion-img>
+          <ion-img src="https://ionicframework.com/docs/img/demos/card-media.png" class="card-img"></ion-img>
           <ion-card-header>
             <ion-card-title>Colecciones de Mujer</ion-card-title>
           </ion-card-header>
@@ -29,7 +37,7 @@
       </ion-col>
       <ion-col size="6">
         <ion-card routerLink="/productos" class="collecion">
-          <ion-img src="../../../assets/men.png" class="card-img"></ion-img>
+          <ion-img src="https://ionicframework.com/docs/img/demos/card-media.png" class="card-img"></ion-img>
           <ion-card-header>
             <ion-card-title>Colecciones de Hombre</ion-card-title>
           </ion-card-header>

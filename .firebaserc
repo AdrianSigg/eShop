@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "auth-ecb87": {
+      "hosting": {
+        "app": [
+          "auth-ecb87"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "auth-ecb87"
+  }
+}

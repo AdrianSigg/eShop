@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  token: string;
 
-  ngOnInit() {
+  constructor(
+  ) { }
+
+  ngOnInit() {}
+
+  ionViewWillEnter() {
+    this.checkLoginStatus();
   }
 
+
+  checkLoginStatus() {
+    const userToken = localStorage.getItem('userToken');
+    this.token = userToken ? userToken : 'null';
+  }
 }

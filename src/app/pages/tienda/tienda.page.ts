@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiServiceService } from '../../services/api-service.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-tienda',
@@ -10,11 +10,11 @@ export class TiendaPage implements OnInit {
   usuarios: any;
 
   constructor(
-    private apiService: ApiServiceService
+    private auth: AuthService
   ) {}
 
   ngOnInit() {
-    this.apiService.consultarUsuario('admin', '1111').subscribe(
+    this.auth.iniciarSesion('admin', '1111').subscribe(
       (usuario) => {
         console.log(usuario);
       },
