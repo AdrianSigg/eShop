@@ -21,21 +21,10 @@ export class AuthService {
     return JSON.parse(JSON.stringify(response)).token;
   }
 
-  ////////////////////////////////////////////////
   verificarSesion() {
-    console.log(localStorage.getItem("userToken"));
-    this.http.get('http://localhost:8000/api/verificar-sesion').subscribe(
-      (response: any) => {
-        const token = this.userTokenHandler(response);
-        console.log("tokenApi: "+token+","+"tokenApp: "+localStorage.getItem("userToken"));
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+    const url = `http://localhost:8000/api/verificar-sesion/`;
+    return this.http.get(url);
   }
-  ///////////////////////////////////////////
-
 
   cerrarSesion() {
     const url = `http://localhost:8000/api/logout/`;

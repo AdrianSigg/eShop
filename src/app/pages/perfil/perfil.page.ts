@@ -17,7 +17,16 @@ export class PerfilPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.user = localStorage.getItem('username') ?? 'usuario';
+    const storedUsername = localStorage.getItem('userToken') ?? 'none';
+    this.user = localStorage.getItem('username') ?? 'no logged';
+    this.auth.verificarSesion().subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   cerrarSesion(){

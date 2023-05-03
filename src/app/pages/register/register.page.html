@@ -13,76 +13,70 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">register</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <form [formGroup]="form" (ngSubmit)="enviaRegistro()" class="ion-padding">
+    <ion-card class="signin-card">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Registrarse</ion-card-title>
+      </ion-card-header>
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Usuario:</ion-label>
+          <ion-input type="text" formControlName="usuario"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="usuarioField?.errors && usuarioField?.dirty">
+          <ion-text color="danger">
+            <p>Este campo es obligatorio</p>
+          </ion-text>
+        </ion-item>
 
-  <form [formGroup]="form" (ngSubmit)="enviaRegistro()">
-    <ion-list>
-      <ion-item>
-        <ion-label position="floating">Usuario:</ion-label>
-        <ion-input type="text" formControlName="usuario"></ion-input>
-      </ion-item>
-      <ion-item
-        *ngIf="usuarioField?.errors && usuarioField?.dirty"
+        <ion-item>
+          <ion-label position="floating">Contraseña:</ion-label>
+          <ion-input type="password" formControlName="contrasena"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="contrasenaField?.errors && contrasenaField?.dirty">
+          <ion-text color="danger">
+            <p>Este campo no puede estar vacío</p>
+          </ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Repetir contraseña:</ion-label>
+          <ion-input type="password" formControlName="contrasena2"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="contrasena2Field?.dirty">
+          <ion-text color="danger">
+            <p *ngIf="contrasena2Field?.errors">
+              Este campo no puede estar vacío
+            </p>
+            <p
+              *ngIf="contrasenaField?.value !== contrasena2Field?.value && !contrasena2Field?.errors"
+            >
+              Las contraseñas no coinciden
+            </p>
+          </ion-text>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Correo:</ion-label>
+          <ion-input type="email" formControlName="correo"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="correoField?.errors && correoField?.dirty">
+          <ion-text color="danger">
+            <p *ngIf="correoField?.hasError('required')">
+              Este campo no puede estar vacío
+            </p>
+            <p *ngIf="correoField?.hasError('email')">El correo es inválido</p>
+          </ion-text>
+        </ion-item>
+      </ion-list>
+
+      <ion-button
+        type="submit"
+        [disabled]="form.invalid || contrasenaField?.value !== contrasena2Field?.value"
+        expand="block"
       >
-        <ion-text color="danger">
-          <p>Este campo es obligatorio</p>
-        </ion-text>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="floating">Contraseña:</ion-label>
-        <ion-input type="password" formControlName="contrasena"></ion-input>
-      </ion-item>
-      <ion-item
-        *ngIf="contrasenaField?.errors && contrasenaField?.dirty"
-      >
-        <ion-text color="danger">
-          <p>Este campo no puede estar vacío</p>
-        </ion-text>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="floating">Repetir contraseña:</ion-label>
-        <ion-input type="password" formControlName="contrasena2"></ion-input>
-      </ion-item>
-      <ion-item *ngIf="contrasena2Field?.dirty">
-        <ion-text color="danger">
-          <p *ngIf="contrasena2Field?.errors">
-            Este campo no puede estar vacío
-          </p>
-          <p
-            *ngIf="contrasenaField?.value !== contrasena2Field?.value && !contrasena2Field?.errors"
-          >
-            Las contraseñas no coinciden
-          </p>
-        </ion-text>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="floating">Correo:</ion-label>
-        <ion-input type="email" formControlName="correo"></ion-input>
-      </ion-item>
-      <ion-item *ngIf="correoField?.errors && correoField?.dirty">
-        <ion-text color="danger">
-          <p *ngIf="correoField?.hasError('required')">
-            Este campo no puede estar vacío
-          </p>
-          <p *ngIf="correoField?.hasError('email')">
-            El correo es inválido
-          </p>
-        </ion-text>
-      </ion-item>
-    </ion-list>
-
-    <ion-button
-      type="submit"
-      [disabled]="form.invalid || contrasenaField?.value !== contrasena2Field?.value"
-    >
-      Enviar
-    </ion-button>
+        Enviar
+      </ion-button>
+    </ion-card>
   </form>
 </ion-content>

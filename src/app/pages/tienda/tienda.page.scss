@@ -11,16 +11,25 @@
     font-size: 0.8rem;
 }
 
-ion-card {
-    height: 25%;
+ion-fab{
+  padding: 20px;
 }
 
+ion-card {
+  height: 25%;
+}
+
+@media screen and (max-width:500px){
+  .small-shop-card {
+    width: 43%;
+    height: 350px;
+    font-size: 0.8rem;
+  }
+}
 
 .card-shop-img {
     height: 165px;
     object-fit: cover;
 }
 
-ion-fab{
-  padding: 20px;
-}
+
