@@ -66,4 +66,8 @@ export class LoginPage implements OnInit {
   resetForm() {
     this.form.reset();
   }
+
+  goBack() {
+    this.navCtrl.back();
+  }
 }

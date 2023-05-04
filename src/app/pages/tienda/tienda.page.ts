@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
-import { ActivatedRoute } from '@angular/router';
 import { Catalogo } from 'src/app/interfaces/catalogo';
-
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tienda',
@@ -13,8 +11,7 @@ export class TiendaPage implements OnInit {
   productos: Catalogo[] = [];
 
   constructor(
-    private auth: AuthService,
-    private activatedRoute: ActivatedRoute
+    private navCtrl: NavController
   ) {}
 
   ngOnInit() {
@@ -22,5 +19,7 @@ export class TiendaPage implements OnInit {
     this.productos = arreglo;
   }
 
-
+  goBack() {
+    this.navCtrl.back();
+  }
 }

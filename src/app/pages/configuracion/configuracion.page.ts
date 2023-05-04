@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-configuracion',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class ConfiguracionPage implements OnInit {
   darkMode: boolean = false;
 
-  constructor() {
+  constructor(
+    private navCtrl: NavController
+  ) {
     this.checkDarkMode();
   }
 
@@ -32,5 +35,9 @@ export class ConfiguracionPage implements OnInit {
   toggleDarkMode() {
     this.darkMode = !this.darkMode;
     document.body.classList.toggle('dark');
+  }
+
+  goBack() {
+    this.navCtrl.back();
   }
 }

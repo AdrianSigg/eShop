@@ -7,8 +7,13 @@ import { HttpClient } from '@angular/common/http';
 export class CatalogoService {
   constructor(private http: HttpClient) {}
 
-  getCatalog(tipo: string) {
+  getCatalogo(tipo: string) {
     const url = `http://localhost:8000/api/catalogo/${tipo}`;
+    return this.http.get(url);
+  }
+
+  getColeccion(sexo: string) {
+    const url = `http://localhost:8000/api/coleccion/${sexo}`;
     return this.http.get(url);
   }
 }

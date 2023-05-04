@@ -12,6 +12,7 @@
       </ion-button>
     </ion-buttons>
     <ion-title>VESTA</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
@@ -28,16 +29,16 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6">
-        <ion-card routerLink="/productos" class="collecion">
-          <ion-img src="https://ionicframework.com/docs/img/demos/card-media.png" class="card-img"></ion-img>
+        <ion-card (click)="getColeccion('mujer')" class="collecion">
+          <ion-img src="../../../assets/inicio/cmp/women.jpg" class="card-img"></ion-img>
           <ion-card-header>
             <ion-card-title>Colecciones de Mujer</ion-card-title>
           </ion-card-header>
         </ion-card>
       </ion-col>
       <ion-col size="6">
-        <ion-card routerLink="/productos" class="collecion">
-          <ion-img src="https://ionicframework.com/docs/img/demos/card-media.png" class="card-img"></ion-img>
+        <ion-card (click)="getColeccion('hombre')" class="collecion">
+          <ion-img src="../../../assets/inicio/cmp/men.jpg" class="card-img"></ion-img>
           <ion-card-header>
             <ion-card-title>Colecciones de Hombre</ion-card-title>
           </ion-card-header>

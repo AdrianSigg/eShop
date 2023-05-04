@@ -36,4 +36,7 @@ export class PerfilPage implements OnInit {
     this.navCtrl.navigateForward('/login');
   }
 
+  goBack() {
+    this.navCtrl.back();
+  }
 }

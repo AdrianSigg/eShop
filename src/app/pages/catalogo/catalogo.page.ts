@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CatalogoService } from 'src/app/services/catalogo.service';
 import { NavController } from '@ionic/angular';
 import { Catalogo } from 'src/app/interfaces/catalogo';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-catalogo',
@@ -17,7 +16,7 @@ export class CatalogoPage implements OnInit {
   ngOnInit() {}
 
   getCatalogo(tipo: string) {
-    this.cat.getCatalog(tipo).subscribe(
+    this.cat.getCatalogo(tipo).subscribe(
       (response: any) => {
         const data = JSON.parse(response.data);
         this.productos = data; // Guardar los datos en un arreglo para usarlos en la plantilla
@@ -27,5 +26,9 @@ export class CatalogoPage implements OnInit {
         console.error(error);
       }
     );
+  }
+
+  goBack() {
+    this.navCtrl.back();
   }
 }

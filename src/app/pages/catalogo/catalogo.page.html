@@ -3,12 +3,17 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-buttons slot="end">
       <ion-button routerLink="../carrito">
         <ion-icon slot="icon-only" name="cart"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Catalogo</ion-title>
+    <ion-title>Catálogo</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -21,7 +26,7 @@
 
   <ion-list class="card-container">
     <ion-card class="small-card">
-      <ion-img src="https://ionicframework.com/docs/img/demos/card-media.png" class="card-img"></ion-img>
+      <ion-img src="../../../assets/inicio/cmp/shirts.jpg" class="card-img"></ion-img>
       <ion-card-header>
         <ion-card-title>Superior</ion-card-title>
       </ion-card-header>
@@ -33,7 +38,7 @@
     </ion-card>
 
     <ion-card class="small-card">
-      <ion-img src="https://ionicframework.com/docs/img/demos/card-media.png" class="card-img"></ion-img>
+      <ion-img src="../../../assets/inicio/cmp/jeans.jpg" class="card-img"></ion-img>
       <ion-card-header>
         <ion-card-title>Pantalones</ion-card-title>
       </ion-card-header>
@@ -45,7 +50,7 @@
     </ion-card>
 
     <ion-card class="small-card">
-      <ion-img src="https://ionicframework.com/docs/img/demos/card-media.png" class="card-img"></ion-img>
+      <ion-img src="../../../assets/inicio/cmp/tenis.jpg" class="card-img"></ion-img>
       <ion-card-header>
         <ion-card-title>Zapatería</ion-card-title>
       </ion-card-header>
@@ -57,7 +62,7 @@
     </ion-card>
 
     <ion-card class="small-card">
-      <ion-img src="https://ionicframework.com/docs/img/demos/card-media.png" class="card-img"></ion-img>
+      <ion-img src="../../../assets/inicio/cmp/hats.jpg" class="card-img"></ion-img>
       <ion-card-header>
         <ion-card-title>Sombreros</ion-card-title>
       </ion-card-header>
