@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { ActivatedRoute } from '@angular/router';
+import { Catalogo } from 'src/app/interfaces/catalogo';
+
 
 @Component({
   selector: 'app-tienda',
@@ -7,21 +10,17 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./tienda.page.scss'],
 })
 export class TiendaPage implements OnInit {
-  usuarios: any;
+  productos: Catalogo[] = [];
 
   constructor(
-    private auth: AuthService
+    private auth: AuthService,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.auth.iniciarSesion('admin', '1111').subscribe(
-      (usuario) => {
-        console.log(usuario);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-
+    const arreglo = history.state.arreglo;
+    this.productos = arreglo;
   }
+
+
 }

@@ -20,13 +20,13 @@
   </ion-header>
 
   <ion-list class="card-shop-container">
-    <ion-card routerLink="/home" class="small-shop-card">
-      <ion-img src="../../../assets/sombreros/kirby.jpg" class="card-shop-img"/>
+    <ion-card routerLink="/home" class="small-shop-card" *ngFor="let producto of productos">
+      <ion-img src="{{producto.imagen}}" class="card-shop-img"/>
       <ion-card-content>
-        Gorro De Punto De Invierno Kirby Rosa Y Ojos Blancos
+        "{{producto.nombre}}"
       </ion-card-content>
       <ion-card-header>
-        <ion-card-title>Precio</ion-card-title>
+        <ion-card-title>"{{producto.precio}}"</ion-card-title>
       </ion-card-header>
     </ion-card>
   </ion-list>

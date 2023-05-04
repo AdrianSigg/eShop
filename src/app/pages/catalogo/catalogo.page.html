@@ -29,11 +29,11 @@
         Descubre nuestra selección de playeras y camisas para todos los estilos y ocasiones. Encuentra diseños únicos y
         de alta calidad para complementar tu guardarropa.
       </ion-card-content>
-      <ion-button fill="clear" routerLink="/tienda">Ver más</ion-button>
+      <ion-button fill="clear" (click)="getCatalogo('superior')">Ver más</ion-button>
     </ion-card>
 
     <ion-card class="small-card">
-      <ion-img src="https://ionicframework.com/docs/img/demos/card-media.png" class="card-img" />
+      <ion-img src="https://ionicframework.com/docs/img/demos/card-media.png" class="card-img"></ion-img>
       <ion-card-header>
         <ion-card-title>Pantalones</ion-card-title>
       </ion-card-header>
@@ -41,11 +41,11 @@
         Colección de pantalones de alta calidad para hombre y mujer. Encuentra los últimos diseños y tendencias de moda
         en nuestra tienda en línea.
       </ion-card-content>
-      <ion-button fill="clear" routerLink="/tienda">Ver más</ion-button>
+      <ion-button fill="clear" (click)="getCatalogo('pantalones')">Ver más</ion-button>
     </ion-card>
 
     <ion-card class="small-card">
-      <ion-img src="https://ionicframework.com/docs/img/demos/card-media.png" class="card-img" />
+      <ion-img src="https://ionicframework.com/docs/img/demos/card-media.png" class="card-img"></ion-img>
       <ion-card-header>
         <ion-card-title>Zapatería</ion-card-title>
       </ion-card-header>
@@ -53,11 +53,11 @@
         Descubre nuestra selección de zapatos y tenis para complementar tu estilo, desde clásicos hasta modernos
         diseños. Encuentra la combinación perfecta de comodidad y estilo para cada ocasión.
       </ion-card-content>
-      <ion-button fill="clear" routerLink="/tienda">Ver más</ion-button>
+      <ion-button fill="clear" (click)="getCatalogo('zapateria')">Ver más</ion-button>
     </ion-card>
 
     <ion-card class="small-card">
-      <ion-img src="https://ionicframework.com/docs/img/demos/card-media.png" class="card-img" />
+      <ion-img src="https://ionicframework.com/docs/img/demos/card-media.png" class="card-img"></ion-img>
       <ion-card-header>
         <ion-card-title>Sombreros</ion-card-title>
       </ion-card-header>
@@ -65,7 +65,7 @@
         Descubre nuestra selección de gorras para complementar tu estilo y protegerte del sol. Encuentra diseños únicos
         y de alta calidad para complementar tu guardarropa.
       </ion-card-content>
-      <ion-button fill="clear" routerLink="/tienda">Ver más</ion-button>
+      <ion-button fill="clear" (click)="getCatalogo('sombreros')">Ver más</ion-button>
     </ion-card>
   </ion-list>
 </ion-content>
