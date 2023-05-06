@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
+  <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -25,20 +25,14 @@
   </ion-header>
 
   <ion-list class="card-shop-container">
-    <ion-card routerLink="/home" class="small-shop-card" *ngFor="let producto of productos">
-      <ion-img src="{{producto.imagen}}" class="card-shop-img"/>
+    <ion-card class="small-shop-card" *ngFor="let producto of productos" (click)="getProducto(producto.id)">
+      <ion-img src={{producto.imagen}} class="card-shop-img"/>
       <ion-card-content>
-        "{{producto.nombre}}"
+        {{producto.nombre}}
       </ion-card-content>
       <ion-card-header>
-        <ion-card-title>"{{producto.precio}}"</ion-card-title>
+        <ion-card-title>${{producto.precio}}</ion-card-title>
       </ion-card-header>
     </ion-card>
   </ion-list>
-
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
-      <ion-icon name="heart"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 </ion-content>

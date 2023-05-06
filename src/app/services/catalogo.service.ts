@@ -16,4 +16,9 @@ export class CatalogoService {
     const url = `http://localhost:8000/api/coleccion/${sexo}`;
     return this.http.get(url);
   }
+
+  getProducto(id: string) {
+    const url = `http://localhost:8000/api/producto/${id}`;
+    return this.http.get(url);
+  }
 }

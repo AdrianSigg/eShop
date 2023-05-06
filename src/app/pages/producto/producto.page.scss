@@ -1,0 +1,46 @@
+
+  .product-row {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+  }
+
+  .img-col {
+    text-align: center;
+  }
+
+  .text-col {
+    padding: 20px;
+  }
+
+  ion-img {
+    max-width: 300px;
+    margin: auto;
+  }
+
+  ion-fab{
+    padding-right: 20px;
+    padding-bottom: 65px;
+  }
+
+
+@media (max-width: 762px) {
+  .product-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .img-col {
+    order: -1;
+  }
+
+  ion-img {
+    width: 200px;
+    margin: auto;
+  }
+
+  ion-fab{
+    padding-right: 20px;
+    padding-bottom: 40px;
+  }
+}

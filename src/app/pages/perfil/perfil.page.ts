@@ -10,6 +10,7 @@ import { NavController } from '@ionic/angular';
 export class PerfilPage implements OnInit {
 
   user: string;
+  user_email: string;
 
   constructor(
     private auth: AuthService,
@@ -19,6 +20,7 @@ export class PerfilPage implements OnInit {
   ngOnInit() {
     const storedUsername = localStorage.getItem('userToken') ?? 'none';
     this.user = localStorage.getItem('username') ?? 'no logged';
+    this.user_email = localStorage.getItem('email') ?? 'no logged';
     this.auth.verificarSesion().subscribe(
       (response) => {
         console.log(response);

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -21,13 +21,13 @@
         <img src="assets/img/avatar.png">
       </ion-avatar>
       <ion-card-title>{{user}}</ion-card-title>
-      <ion-card-subtitle>user-email</ion-card-subtitle>
+      <ion-card-subtitle>{{user_email}}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <ion-list >
-        <ion-item routerLink="/home">
+        <ion-item routerLink="/carrito">
           <ion-icon slot="start" name="heart"></ion-icon>
-          <ion-label>Prendas guardadas</ion-label>
+          <ion-label>Favoritos</ion-label>
         </ion-item>
         <ion-item routerLink="/home">
           <ion-icon slot="start" name="person"></ion-icon>

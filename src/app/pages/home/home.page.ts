@@ -33,7 +33,6 @@ export class HomePage implements OnInit {
       (response: any) => {
         const data = JSON.parse(response.data);
         this.productos = data; // Guardar los datos en un arreglo para usarlos en la plantilla
-        console.log(this.productos);
         this.navCtrl.navigateForward('/tienda', { state: { arreglo: this.productos } });
       },
       (error) => {

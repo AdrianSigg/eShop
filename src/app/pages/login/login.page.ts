@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { NavController } from '@ionic/angular';
-
+import { NavController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -18,12 +17,12 @@ export class LoginPage implements OnInit {
     private formBuilder: FormBuilder,
     private auth: AuthService,
     private navCtrl: NavController,
+    private toastController: ToastController // Inyectamos el ToastController
   ) {
     this.buildForm();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   private buildForm() {
     this.form = this.formBuilder.group({
@@ -40,7 +39,7 @@ export class LoginPage implements OnInit {
     return this.form.get('contrasena');
   }
 
-  iniciaSesion() {
+  async iniciaSesion() { // Agregamos async para poder usar await en la creación del toast
     const usuario = this.usuarioField?.value;
     const contrasena = this.contrasenaField?.value;
 
@@ -49,11 +48,15 @@ export class LoginPage implements OnInit {
         if (!this.auth.userTokenHandler(response)) {
           this.errorField = true;
           this.err = JSON.parse(JSON.stringify(response)).error;;
-        }else {
+        } else {
           // Se guarda el token en el local storage
           localStorage.setItem('userToken', this.auth.userTokenHandler(response));
           localStorage.setItem('username', JSON.parse(JSON.stringify(response)).user);
+          localStorage.setItem('user_email', JSON.parse(JSON.stringify(response)).email);
           this.navCtrl.navigateForward('/home');
+
+          // Creamos el toast
+          this.presentToast();
         }
       },
       (error) => {
@@ -69,5 +72,15 @@ export class LoginPage implements OnInit {
 
   goBack() {
     this.navCtrl.back();
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Sesión iniciada con éxito',
+      duration: 3000,
+      position: 'bottom',
+      color: 'success'
+    });
+    toast.present();
   }
 }

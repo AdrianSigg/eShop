@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button routerLink="../carrito">
+        <ion-icon slot="icon-only" name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-grid>
+      <ion-row class="product-row">
+        <ion-col size="12" size-md="6" class="text-col">
+          <ion-card-header>
+            <ion-card-title><b>{{productos[0].nombre}}</b></ion-card-title>
+            <ion-card-subtitle>{{productos[0].descripcion}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>${{productos[0].precio}}</p>
+            <div>
+              <b>Cantidad:</b>
+              <ion-input type="number" value="1" class="quantity-input" min="1"></ion-input>
+              <span>({{productos[0].cantidad}} disponibles)</span>
+            </div>
+            <ion-select aria-label="talla" interface="popover" placeholder="Selecciona talla">
+              <ion-select-option value="S" *ngFor="let talla of tallas">{{talla}}</ion-select-option>
+            </ion-select>
+            <ion-select aria-label="color" interface="popover" placeholder="Selecciona color">
+              <ion-select-option value="" *ngFor="let color of colores">{{color}}</ion-select-option>
+            </ion-select>
+          </ion-card-content>
+        </ion-col>
+        <ion-col size="12" size-md="6" class="img-col">
+          <ion-img src="{{productos[0].imagen}}"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+
+  <ion-row>
+    <ion-col>
+      <ion-button expand="block" color="primary"> Comprar </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button expand="block" color="primary">
+        Agregar al carrito
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-fab
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed"
+    (click)="agregarFavorito()"
+  >
+    <ion-fab-button color="danger">
+      <ion-icon name="heart"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
