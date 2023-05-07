@@ -36,7 +36,7 @@ export class HomePage implements OnInit {
         this.navCtrl.navigateForward('/tienda', { state: { arreglo: this.productos } });
       },
       (error) => {
-        console.error(error);
+
       }
     );
   }

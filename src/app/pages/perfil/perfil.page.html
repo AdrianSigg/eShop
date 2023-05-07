@@ -17,9 +17,6 @@
 <ion-content class="ion-padding">
   <ion-card>
     <ion-card-header>
-      <ion-avatar slot="start">
-        <img src="assets/img/avatar.png">
-      </ion-avatar>
       <ion-card-title>{{user}}</ion-card-title>
       <ion-card-subtitle>{{user_email}}</ion-card-subtitle>
     </ion-card-header>
@@ -37,7 +34,7 @@
           <ion-icon slot="start" name="settings"></ion-icon>
           <ion-label>Configuración</ion-label>
         </ion-item>
-        <ion-item (click)="cerrarSesion()" class="profile-buttons">
+        <ion-item (click)="cerrarSesion(token)" class="profile-buttons">
           <ion-icon slot="start" name="log-out"></ion-icon>
           <ion-label>Cerrar sesión</ion-label>
         </ion-item>

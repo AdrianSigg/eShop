@@ -51,8 +51,6 @@ export class LoginPage implements OnInit {
         } else {
           // Se guarda el token en el local storage
           localStorage.setItem('userToken', this.auth.userTokenHandler(response));
-          localStorage.setItem('username', JSON.parse(JSON.stringify(response)).user);
-          localStorage.setItem('user_email', JSON.parse(JSON.stringify(response)).email);
           this.navCtrl.navigateForward('/home');
 
           // Creamos el toast
@@ -60,7 +58,7 @@ export class LoginPage implements OnInit {
         }
       },
       (error) => {
-        console.error(error);
+        
       }
     );
     this.resetForm();

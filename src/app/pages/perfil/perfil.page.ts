@@ -8,7 +8,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
-
+  token: string
   user: string;
   user_email: string;
 
@@ -18,23 +18,29 @@ export class PerfilPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    const storedUsername = localStorage.getItem('userToken') ?? 'none';
-    this.user = localStorage.getItem('username') ?? 'no logged';
-    this.user_email = localStorage.getItem('email') ?? 'no logged';
-    this.auth.verificarSesion().subscribe(
-      (response) => {
-        console.log(response);
+    this.token = localStorage.getItem('userToken') ?? 'none';
+    this.getPerfil(this.token);
+  }
+
+  getPerfil(token: string) {
+    this.auth.consultarUsuario(token).subscribe(
+      (response: any) => {
+        try {
+          const perfil = JSON.parse(response); // convierte el string JSON en un objeto TypeScript
+          this.user = perfil[0].nombre;
+          this.user_email = perfil[0].correo;
+        } catch (error) {
+          
+        }
       },
       (error) => {
-        console.log(error);
       }
     );
   }
 
-  cerrarSesion(){
-    this.auth.cerrarSesion();
+  cerrarSesion(token: string){
+    this.auth.cerrarSesion(token);
     localStorage.removeItem("userToken");
-    localStorage.removeItem("username");
     this.navCtrl.navigateForward('/login');
   }
 

@@ -58,7 +58,7 @@ export class RegisterPage implements OnInit {
         this.navCtrl.navigateForward('/login');
       },
       (error) => {
-        console.error(error);
+        
       }
     );
     this.resetForm();

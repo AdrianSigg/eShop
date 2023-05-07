@@ -19,6 +19,7 @@ export class TiendaPage implements OnInit {
   ngOnInit() {
     const arreglo = history.state.arreglo;
     this.productos = arreglo;
+    
   }
 
   getProducto(id: string) {
@@ -28,7 +29,7 @@ export class TiendaPage implements OnInit {
         this.navCtrl.navigateForward('/producto', { state: { arreglo: data } });
       },
       (error) => {
-        console.error(error);
+
       }
     );
   }

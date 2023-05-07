@@ -17,17 +17,22 @@ export class AuthService {
     return this.http.get(url);
   }
 
+  consultarUsuario(token: string) {
+    const url = `http://localhost:8000/api/profile/${token}`;
+    return this.http.get(url);
+  }
+
   userTokenHandler(response: Object){
     return JSON.parse(JSON.stringify(response)).token;
   }
 
-  verificarSesion() {
-    const url = `http://localhost:8000/api/verificar-sesion/`;
+  cerrarSesion(token: string) {
+    const url = `http://localhost:8000/api/logout/${token}`;
     return this.http.get(url);
   }
 
-  cerrarSesion() {
-    const url = `http://localhost:8000/api/logout/`;
+  getToken(token: string){
+    const url = `http://localhost:8000/api/check/${token}`;
     return this.http.get(url);
   }
 }

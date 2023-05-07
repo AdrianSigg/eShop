@@ -30,11 +30,11 @@
             <p>${{productos[0].precio}}</p>
             <div>
               <b>Cantidad:</b>
-              <ion-input type="number" value="1" class="quantity-input" min="1"></ion-input>
+              <ion-input type="number" value="1" class="quantity-input" min="1" max="{{productos[0].cantidad}}"></ion-input>
               <span>({{productos[0].cantidad}} disponibles)</span>
             </div>
             <ion-select aria-label="talla" interface="popover" placeholder="Selecciona talla">
-              <ion-select-option value="S" *ngFor="let talla of tallas">{{talla}}</ion-select-option>
+              <ion-select-option *ngFor="let talla of tallas">{{talla}}</ion-select-option>
             </ion-select>
             <ion-select aria-label="color" interface="popover" placeholder="Selecciona color">
               <ion-select-option value="" *ngFor="let color of colores">{{color}}</ion-select-option>
