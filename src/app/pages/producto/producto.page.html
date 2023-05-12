@@ -64,7 +64,7 @@
     vertical="bottom"
     horizontal="end"
     slot="fixed"
-    (click)="agregarFavorito()"
+    (click)="agregarFavorito(this.user,this.productos[0].id)"
   >
     <ion-fab-button color="danger">
       <ion-icon name="heart"></ion-icon>

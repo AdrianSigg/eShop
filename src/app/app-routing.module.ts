@@ -54,6 +54,11 @@ const routes: Routes = [
     path: 'producto',
     loadChildren: () => import('./pages/producto/producto.module').then( m => m.ProductoPageModule)
   },
+  {
+    path: '**',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

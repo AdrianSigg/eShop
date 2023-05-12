@@ -21,4 +21,9 @@ export class CatalogoService {
     const url = `http://localhost:8000/api/producto/${id}`;
     return this.http.get(url);
   }
+
+  guardaFavorito(id_usuario: string, id_producto: string) {
+    const url = `http://localhost:8000/api/favoritos/${id_usuario}/${id_producto}`;
+    return this.http.get(url);
+  }
 }

@@ -13,7 +13,7 @@ export class AuthService {
   }
 
   registrarUsuario(alias: string, contrasena: string, correo: string) {
-    const url = `http://localhost:8000/api/signin/${alias}/${contrasena}/${correo}`;
+    const url = `http://localhost:8000/api/signup/${alias}/${contrasena}/${correo}`;
     return this.http.get(url);
   }
 
