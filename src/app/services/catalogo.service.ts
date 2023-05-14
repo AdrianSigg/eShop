@@ -26,4 +26,9 @@ export class CatalogoService {
     const url = `http://localhost:8000/api/favoritos/${id_usuario}/${id_producto}`;
     return this.http.get(url);
   }
+
+  getFavoritos(id_usuario: string) {
+    const url = `http://localhost:8000/api/getFavoritos/${id_usuario}`;
+    return this.http.get(url);
+  }
 }

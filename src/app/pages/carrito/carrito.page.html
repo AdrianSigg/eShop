@@ -17,9 +17,10 @@
         <ion-segment-button value="all">
           <ion-label>Carrito</ion-label>
         </ion-segment-button>
-        <ion-segment-button value="favorites">
+        <ion-segment-button value="favorites" id="open-loading">
           <ion-label>Favoritos</ion-label>
         </ion-segment-button>
+        <ion-loading trigger="open-loading" message="Loading..." spinner="bubbles" *ngIf="!showCards"></ion-loading>
       </ion-segment>
     </ion-toolbar>
   </ion-header>
@@ -31,4 +32,18 @@
       <ion-title size="large">Carrito de compras</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div *ngIf="showCards" class="card-shop-container">
+    <ion-card *ngFor="let producto of (segmentValue === 'all' ? productos : responses)" class="small-shop-card">
+      <ion-img src={{producto.imagen}} class="card-shop-img"/>
+      <ion-card-content>
+        {{producto.nombre}}
+      </ion-card-content>
+      <ion-card-header>
+        <ion-card-title>${{producto.precio}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+
 </ion-content>

@@ -36,7 +36,7 @@ export class ProductoPage implements OnInit {
         (response: any) => {
           const perfil = JSON.parse(response); // convierte el string JSON en un objeto TypeScript
           try{
-            this.user = perfil[0].nombre;
+            this.user = perfil[0].id;
           }catch{
 
           }
@@ -70,10 +70,11 @@ export class ProductoPage implements OnInit {
         this.presentaToastFavoritos(toastMessage.mensaje);
       },
       (error) => {
-        
+
       }
     );
     }else {
+      this.presentaToastFavoritos("Primero debes iniciar sesión");
       this.navCtrl.navigateForward('/login');
     }
   }

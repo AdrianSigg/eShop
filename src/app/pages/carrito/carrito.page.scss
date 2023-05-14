@@ -1,0 +1,30 @@
+.card-shop-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.small-shop-card {
+  width: 200px;
+  height: 350px;
+  font-size: 0.8rem;
+}
+
+ion-card {
+cursor: pointer;
+height: 25%;
+}
+
+@media screen and (max-width:500px){
+.small-shop-card {
+  width: 43%;
+  height: 350px;
+  font-size: 0.8rem;
+}
+}
+
+.card-shop-img {
+  height: 165px;
+  object-fit: cover;
+}
