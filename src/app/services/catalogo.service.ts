@@ -31,4 +31,14 @@ export class CatalogoService {
     const url = `http://localhost:8000/api/getFavoritos/${id_usuario}`;
     return this.http.get(url);
   }
+
+  guardaCarrito(id_usuario: string, id_producto: string) {
+    const url = `http://localhost:8000/api/carrito/${id_usuario}/${id_producto}`;
+    return this.http.get(url);
+  }
+
+  getCarrito(id_usuario: string) {
+    const url = `http://localhost:8000/api/getCarrito/${id_usuario}`;
+    return this.http.get(url);
+  }
 }

@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CarritoPageRoutingModule } from './carrito-routing.module';
+import { ArticulosPageRoutingModule } from './articulos-routing.module';
 
-import { CarritoPage } from './carrito.page';
+import { ArticulosPage } from './articulos.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CarritoPageRoutingModule
+    ArticulosPageRoutingModule
   ],
-  declarations: [CarritoPage]
+  declarations: [ArticulosPage]
 })
-export class CarritoPageModule {}
+export class ArticulosPageModule {}

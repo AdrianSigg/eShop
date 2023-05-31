@@ -1,0 +1,76 @@
+.card-shop-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.small-shop-card {
+  width: 200px;
+  height: 350px;
+  font-size: 0.8rem;
+}
+
+ion-card {
+cursor: pointer;
+height: 25%;
+}
+
+
+
+.selected {
+  border: 2px solid blue; /* Cambia el color y el grosor del contorno según tus preferencias */
+}
+
+.selection-message {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: blue; /* Cambia el color del fondo del mensaje según tus preferencias */
+  color: white; /* Cambia el color del texto del mensaje según tus preferencias */
+  padding: 4px 8px;
+  font-size: 12px; /* Cambia el tamaño de fuente del mensaje según tus preferencias */
+}
+
+
+@media screen and (max-width:500px){
+.small-shop-card {
+  width: 43%;
+  height: 350px;
+  font-size: 0.8rem;
+}
+
+.selected {
+  border: 2px solid blue; /* Cambia el color y el grosor del contorno según tus preferencias */
+}
+
+.selection-message {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: blue; /* Cambia el color del fondo del mensaje según tus preferencias */
+  color: white; /* Cambia el color del texto del mensaje según tus preferencias */
+  padding: 4px 8px;
+  font-size: 12px; /* Cambia el tamaño de fuente del mensaje según tus preferencias */
+}
+
+}
+
+ion-card-content{
+  height: 25%;
+}
+
+ion-card-title{
+  height: 25%;
+}
+
+.card-shop-img {
+  height: 50%;
+  object-fit: cover;
+}
+
+ion-fab{
+  padding-right: 20px;
+  padding-bottom: 40px;
+}
+

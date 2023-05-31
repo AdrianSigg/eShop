@@ -34,11 +34,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
   },
   {
-    path: 'carrito',
-    canActivate: [AuthGuard], // Agregar el guard a la ruta
-    loadChildren: () => import('./pages/carrito/carrito.module').then( m => m.CarritoPageModule)
-  },
-  {
     path: 'tienda',
     loadChildren: () => import('./pages/tienda/tienda.module').then( m => m.TiendaPageModule)
   },
@@ -55,10 +50,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/producto/producto.module').then( m => m.ProductoPageModule)
   },
   {
+    path: 'articulos',
+    canActivate: [AuthGuard], // Agregar el guard a la ruta
+    loadChildren: () => import('./pages/articulos/articulos.module').then( m => m.ArticulosPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'home',
     pathMatch: 'full'
-  }
+  },
 ];
 
 @NgModule({

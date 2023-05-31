@@ -54,7 +54,7 @@
       <ion-button expand="block" color="primary"> Comprar </ion-button>
     </ion-col>
     <ion-col>
-      <ion-button expand="block" color="primary">
+      <ion-button expand="block" color="primary" (click)="agregarCarrito(this.user,this.productos[0].id)">
         Agregar al carrito
       </ion-button>
     </ion-col>

@@ -10,7 +10,7 @@ export class AppComponent {
   public appPages = [
     { title: 'Inicio', url: 'home', icon: 'home' },
     { title: 'Catálogo', url: 'catalogo', icon: 'shirt' },
-    { title: 'Carrito', url: 'carrito', icon: 'cart' },
+    { title: 'Mis Artículos', url: 'articulos', icon: 'cart' },
     { title: 'Perfil', url: 'perfil', icon: 'person' },
     { title: 'Configuración', url: 'configuracion', icon: 'settings' },
     { title: 'Ayuda', url: 'help', icon: 'help-circle' },

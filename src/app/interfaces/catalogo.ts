@@ -7,4 +7,5 @@ export interface Catalogo {
   cantidad: string;
   talla: string;
   color: string;
+  selected: boolean;
 }

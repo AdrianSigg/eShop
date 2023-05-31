@@ -79,7 +79,33 @@ export class ProductoPage implements OnInit {
     }
   }
 
+  agregarCarrito($id_usuario: string, $id_producto: string) {
+    if (localStorage.getItem("userToken")) {
+      // Lógica para agregar el artículo a carrito
+    this.cat.guardaCarrito($id_usuario, $id_producto).subscribe(
+      (response: any) => {
+        const toastMessage = JSON.parse(response.data);
+        this.presentaToastCarrito(toastMessage.mensaje);
+      },
+      (error) => {
+
+      }
+    );
+    }else {
+      this.presentaToastFavoritos("Primero debes iniciar sesión");
+      this.navCtrl.navigateForward('/login');
+    }
+  }
+
   async presentaToastFavoritos(toastMessage: string){
+    const toast = await this.toastController.create({
+      message: toastMessage,
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  async presentaToastCarrito(toastMessage: string){
     const toast = await this.toastController.create({
       message: toastMessage,
       duration: 2000
