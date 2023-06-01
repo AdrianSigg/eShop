@@ -5,6 +5,7 @@ export interface Catalogo {
   imagen: string;
   descripcion: string;
   cantidad: string;
+  cantidadCompra: string;
   talla: string;
   color: string;
   selected: boolean;

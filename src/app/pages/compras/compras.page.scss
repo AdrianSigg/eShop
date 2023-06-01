@@ -1,0 +1,21 @@
+/* En tu archivo compras.page.scss */
+ion-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+ion-label {
+  font-size: 16px;
+}
+
+ion-input {
+  font-size: 16px;
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: 4px;
+}
+
+ion-button {
+  margin-top: 16px;
+  --border-radius: 8px;
+}

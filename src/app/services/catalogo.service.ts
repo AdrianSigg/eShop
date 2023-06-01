@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Catalogo } from '../interfaces/catalogo';
 
 @Injectable({
   providedIn: 'root',
@@ -39,6 +40,11 @@ export class CatalogoService {
 
   getCarrito(id_usuario: string) {
     const url = `http://localhost:8000/api/getCarrito/${id_usuario}`;
+    return this.http.get(url);
+  }
+
+  comprar(id_producto: string, talla: string, cantidad: string) {
+    const url = `http://localhost:8000/api/compra/${id_producto}/${talla}/${cantidad}`;
     return this.http.get(url);
   }
 }

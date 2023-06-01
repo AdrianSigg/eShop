@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title> Procesar Compra </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()" color="light">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formulario" (ngSubmit)="realizarCompra()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked" color="primary">Nombre</ion-label>
+        <ion-input formControlName="nombre" placeholder="Ingrese su nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="primary">Dirección de envío</ion-label>
+        <ion-input formControlName="direccion" placeholder="Ingrese su dirección"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="primary">Tarjeta de crédito</ion-label>
+        <ion-input formControlName="tarjeta" placeholder="Ingrese su tarjeta"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="primary">Fecha de vencimiento</ion-label>
+        <ion-input formControlName="fechaVencimiento" placeholder="MM/AA"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="primary">Código de seguridad</ion-label>
+        <ion-input formControlName="codigoSeguridad" placeholder="Ingrese el código de seguridad"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="full" color="success" type="submit">Realizar Compra</ion-button>
+  </form>
+</ion-content>

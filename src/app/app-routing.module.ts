@@ -59,6 +59,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'compras',
+    loadChildren: () => import('./pages/compras/compras.module').then( m => m.ComprasPageModule)
+  },
 ];
 
 @NgModule({

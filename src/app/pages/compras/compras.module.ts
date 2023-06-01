@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProductoPageRoutingModule } from './producto-routing.module';
+import { ComprasPageRoutingModule } from './compras-routing.module';
 
-import { ProductoPage } from './producto.page';
+import { ComprasPage } from './compras.page';
 
 @NgModule({
   imports: [
@@ -14,8 +14,8 @@ import { ProductoPage } from './producto.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    ProductoPageRoutingModule
+    ComprasPageRoutingModule
   ],
-  declarations: [ProductoPage]
+  declarations: [ComprasPage]
 })
-export class ProductoPageModule {}
+export class ComprasPageModule {}

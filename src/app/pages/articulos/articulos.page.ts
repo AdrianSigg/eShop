@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Catalogo } from 'src/app/interfaces/catalogo';
 import { CatalogoService } from 'src/app/services/catalogo.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { ModalController } from '@ionic/angular';
+import { ComprasPage } from '../compras/compras.page';
 
 @Component({
   selector: 'app-articulos',
@@ -16,13 +18,15 @@ export class ArticulosPage implements OnInit {
   responsesCarr: Catalogo[] = [];
   showCards: boolean = false;
   countMessage: number;
+  productos: Catalogo[] = [];
 
   constructor(
     private navCtrl: NavController,
     private route: ActivatedRoute,
     private catalogoService: CatalogoService,
     private authService: AuthService,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private modalController: ModalController
   ) {}
 
   ngOnInit() {
@@ -124,12 +128,24 @@ export class ArticulosPage implements OnInit {
         this.countMessage = -1;
       }
 
+      // Agrega o quita el ID del producto del arreglo de productos seleccionados
+      if (producto.selected) {
+        const alreadySelected = selectedProducts.some((p) => p.id === producto.id);
+        if (!alreadySelected) {
+          selectedProducts.push(producto);
+        }
+      } else {
+        const index = selectedProducts.findIndex((p) => p.id === producto.id);
+        if (index !== -1) {
+          selectedProducts.splice(index, 1);
+        }
+      }
 
-      //console.log(message); // Puedes reemplazar esto con tu lógica para mostrar el mensaje en la interfaz
-
-      this.seleccionaCarrito(producto); // Acción para las tarjetas del carrito
+      this.seleccionaCarrito(selectedProducts); // Acción para las tarjetas del carrito
+      console.log(selectedProducts);
     }
   }
+
 
 
   navigateToProduct(producto: Catalogo) {
@@ -142,12 +158,32 @@ export class ArticulosPage implements OnInit {
     );
   }
 
-  seleccionaCarrito(producto: Catalogo) {
-    // Realiza alguna otra acción específica para las tarjetas del carrito
-    //console.log(producto);
+  seleccionaCarrito(productos: Catalogo[]) {
+    this.productos = productos; // Almacenar el arreglo en la propiedad 'productos'
   }
 
   goBack() {
     this.navCtrl.back();
+  }
+
+  async mostrarModal() {
+
+    console.log(this.productos);
+    // Si no se seleccionaron los articulos del carrito, se compran todos
+    if (this.productos.length === 0) {
+      for (let index = 0; index < this.responsesCarr.length; index++) {
+        this.productos[index] = this.responsesCarr[index];
+      }
+    }
+
+    const modal = await this.modalController.create({
+      component: ComprasPage,
+      componentProps: {
+        productos: this.productos // Pasar la propiedad 'productos' como parámetro al componente del modal
+      },
+      cssClass: 'my-modal-class'
+    });
+
+    return await modal.present();
   }
 }

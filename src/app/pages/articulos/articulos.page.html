@@ -61,15 +61,11 @@
     spinner="bubbles"
   ></ion-loading>
 
-  <ion-fab
-    vertical="bottom"
-    horizontal="end"
-    slot="fixed"
-    title="Realizar compra"
-  >
-    <ion-fab-button>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" title="Realizar compra">
+    <ion-fab-button (click)="mostrarModal()">
       <ion-icon name="card"></ion-icon>
-      <ion-badge *ngIf="countMessage !== -1">{{ countMessage }}</ion-badge>
+      <ion-badge *ngIf="countMessage > 0">{{ countMessage }}</ion-badge>
     </ion-fab-button>
   </ion-fab>
+
 </ion-content>

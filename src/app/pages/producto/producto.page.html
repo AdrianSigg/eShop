@@ -26,19 +26,30 @@
             <ion-card-title><b>{{productos[0].nombre}}</b></ion-card-title>
             <ion-card-subtitle>{{productos[0].descripcion}}</ion-card-subtitle>
           </ion-card-header>
-          <ion-card-content>
+          <ion-card-content [formGroup]="myForm"> <!-- Agrega el atributo formGroup -->
             <p>${{productos[0].precio}}</p>
             <div>
               <b>Cantidad:</b>
-              <ion-input type="number" value="1" class="quantity-input" min="1" max="{{productos[0].cantidad}}"></ion-input>
+              <ion-input formControlName="cantidad" type="number" value="1" class="quantity-input" min="1" max="{{productos[0].cantidad}}"></ion-input>
               <span>({{productos[0].cantidad}} disponibles)</span>
+              <div *ngIf="myForm.get('cantidad')?.errors && myForm.get('cantidad')?.touched">
+                <span style="color: red;">La cantidad es obligatoria.</span>
+              </div>
             </div>
-            <ion-select aria-label="talla" interface="popover" placeholder="Selecciona talla">
+            <ion-select formControlName="talla" aria-label="talla" interface="popover" placeholder="Selecciona talla">
+              <ion-select-option value="" disabled selected hidden>Selecciona talla</ion-select-option>
               <ion-select-option *ngFor="let talla of tallas">{{talla}}</ion-select-option>
             </ion-select>
-            <ion-select aria-label="color" interface="popover" placeholder="Selecciona color">
-              <ion-select-option value="" *ngFor="let color of colores">{{color}}</ion-select-option>
+            <div *ngIf="myForm.get('talla')?.errors && myForm.get('talla')?.touched">
+              <span style="color: red;">La talla es obligatoria.</span>
+            </div>
+            <ion-select formControlName="color" aria-label="color" interface="popover" placeholder="Selecciona color">
+              <ion-select-option value="" disabled selected hidden>Selecciona color</ion-select-option>
+              <ion-select-option *ngFor="let color of colores">{{color}}</ion-select-option>
             </ion-select>
+            <div *ngIf="myForm.get('color')?.errors && myForm.get('color')?.touched">
+              <span style="color: red;">El color es obligatorio.</span>
+            </div>
           </ion-card-content>
         </ion-col>
         <ion-col size="12" size-md="6" class="img-col">
@@ -48,20 +59,19 @@
     </ion-grid>
   </ion-card>
 
-
   <ion-row>
     <ion-col>
-      <ion-button expand="block" color="primary"> Comprar </ion-button>
+      <ion-button expand="block" color="primary" (click)="mostrarModal(this.productos[0].id,this.productos[0].nombre,this.productos[0].precio, this.productos[0].imagen, this.productos[0].descripcion, this.productos[0].cantidad)" [disabled]="isComprarDisabled"> Comprar </ion-button>
     </ion-col>
     <ion-col>
-      <ion-button expand="block" color="primary" (click)="agregarCarrito(this.user,this.productos[0].id)">
+      <ion-button expand="block" color="primary" (click)="agregarCarrito(this.user,this.productos[0].id,this.productos[0].cantidad,this.productos[0].talla, this.productos[0].color)" [disabled]="myForm.invalid">
         Agregar al carrito
       </ion-button>
     </ion-col>
   </ion-row>
 
   <ion-fab
-    vertical="bottom"
+    vertical="start"
     horizontal="end"
     slot="fixed"
     (click)="agregarFavorito(this.user,this.productos[0].id)"
